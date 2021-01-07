@@ -55,3 +55,21 @@ function getDate() {
             }
         }, 1000);
 }
+
+var toggleMenu;
+
+function showMenu() {
+
+    if (toggleMenu==false) {
+        document.getElementById("menuList").style.visibility="hidden";
+        document.getElementById("menu").style.backgroundColor=""
+        document.getElementById("menu").style.left="-1000px"
+        toggleMenu=true;
+    }else{
+        document.getElementById("menuList").style.visibility="visible";
+        document.getElementById("menu").style.backgroundColor="#343a40"
+        document.getElementById("menu").style.left="-100px"
+        toggleMenu=false;
+    }
+    
+}

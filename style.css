@@ -23,7 +23,6 @@ body{
     float: left;
     clear: left;
 }
-
 .boxName{
 text-align: center;
 font-family: 'Darker Grotesque', sans-serif;
@@ -151,3 +150,42 @@ input:hover::placeholder{
        max-height: 50px;
    }
 }
+
+nav{
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 25px;
+    width: fit-content;
+    display: inline-block;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    z-index: 1;
+   }
+#navIcon{
+    width: 40px;
+}
+#navIcon:hover{
+    width: 43px;
+    cursor: pointer;
+}
+nav ul{
+    visibility: hidden;  
+}
+#menuTitle{
+    display: inline-block;
+    margin: 0px;
+    width: fit-content;
+}
+#menu{
+ width: 250px;
+ display: inline-block;
+ position: absolute;
+ top: 50px;
+ left: -1000px;
+margin-left: 5px;
+color: #95D5B2;
+transition: all .4s;
+}
+
+
+
