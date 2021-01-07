@@ -13,7 +13,13 @@
 </head>
 
 <body>
+
     <main id="countBox">
+        <header>
+            <h1 id="title">
+
+            </h1>
+        </header>
         <div id="display"></div>
         <div id="cmdLine">
             <div class="boxName">D</div>
@@ -22,15 +28,18 @@
             <div class="boxName">S</div>
         </div>
         <div id="cmdLine">
-            <input type="text" oninput="" placeholder="Event name">
+            <input id="event" type="text" oninput="getName()" placeholder="Event name">
             <input type="date" id="dateBox" title="Event date">
-            <button id="start">start</button>
+            <button id="start" onclick="getDate()">start</button>
             <button id="save">save</button>
         </div>
 
     </main>
 
+    <script src="script.js"></script>
+
+
 </body>
-<script src="script.js"></script>
+
 
 </html>
