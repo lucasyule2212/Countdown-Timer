@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <nav onclick="showMenu()">
-        <img id="navIcon" src="assets/cardapio.png" alt="MenuIcon">
+    <nav >
+        <img onclick="showMenu()" id="navIcon" src="assets/cardapio.png" alt="MenuIcon">
 
         <div id="menu">
             <ul id="menuList">
@@ -41,7 +41,7 @@
             <input id="event" type="text" oninput="getName()" placeholder="Event name">
             <input type="date" id="dateBox" title="Event date" placeholder="Event date">
             <button id="start" onclick="getDate()">start</button>
-            <button id="save">save</button>
+            <button id="save" onclick="saveDate()">save</button>
         </div>
 
     </main>

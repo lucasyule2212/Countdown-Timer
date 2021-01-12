@@ -1,4 +1,6 @@
 
+
+
 function getName() {
     let eventName = document.getElementById("event").value;
     document.getElementById("title").innerHTML = eventName;
@@ -6,30 +8,40 @@ function getName() {
 function getDateDisplay() {
   return document.getElementById("dateBox").value;
 }
+function getTitleDisplay(){
+    return document.getElementById("title").innerHTML;
+}
 
 var ms;
 function getMs(date) {
     ms = date.getTime();
 }
-
-function getDate() {
+function getDateObj() {
     let day = getDateDisplay().substring(8, 10);
     let month = getDateDisplay().substring(5, 7) - 1;
     let year = getDateDisplay().substring(0, 4);
-    let date = new Date(year, month, day);
-    getMs(date);
+    var date = new Date(year, month, day);
+    return date;
+}
 
+function attMs() {
+    return ms;
+}
+
+function getDate() {
+
+    getMs(getDateObj());
     var x = setInterval(
         function () {
             var today = new Date().getTime();
-            var cntDown = ms - today;
+            var cntDown = attMs() - today;
             var days = Math.floor(cntDown / (1000 * 60 * 60 * 24));
             var hours = Math.floor((cntDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var min = Math.floor((cntDown % (1000 * 60 * 60) / (1000 * 60)))
             var seconds = Math.floor(cntDown % (1000 * 60) / 1000); 
 
             var eventOk=true;
-            let title = document.getElementById("title").innerHTML;
+            var title = document.getElementById("title").innerHTML;
             if (title == "") {             
                 alert("Nome do evento inválido!")
                 clearInterval(x);  
@@ -73,3 +85,29 @@ function showMenu() {
     }
     
 }
+
+let saveButton=document.getElementById("save");
+var arrayIndex=0;
+var arrayDate=[];
+function saveDate() {
+    if (title != "") {
+        let newDate= (getDateDisplay().substring(8, 10))+"/"+(getDateDisplay().substring(5, 7))+"/"+(getDateDisplay().substring(0, 4));
+        let newTitle = getTitleDisplay();
+        arrayDate.push({data: newDate,event: newTitle});
+        document.getElementById("menuList").innerHTML+=`<br> <li onclick="setDate(${arrayIndex})">${arrayDate[arrayIndex].data+"<br>("+arrayDate[arrayIndex].event+")"}</li>`;
+        arrayIndex++;
+        
+    }else{
+        alert("Voce precisa definir um evento válido!");
+    }
+   
+}
+function setDate(arrayIndex) {
+let day1 = arrayDate[arrayIndex].data.substring(0, 2);
+let month1 = arrayDate[arrayIndex].data.substring(3, 5)-1;
+let year1  = arrayDate[arrayIndex].data.substring(6, 10);
+let newDate1= new Date(year1,month1,day1);
+document.getElementById("title").innerHTML=arrayDate[arrayIndex].event;
+getMs(newDate1);
+}
+

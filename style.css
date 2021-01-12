@@ -160,6 +160,7 @@ nav{
     top: 100px;
     left: 100px;
     z-index: 1;
+    max-height: 100px;
    }
 #navIcon{
     width: 40px;
@@ -170,6 +171,7 @@ nav{
 }
 nav ul{
     visibility: hidden;  
+ 
 }
 #menuTitle{
     display: inline-block;
@@ -186,6 +188,13 @@ margin-left: 5px;
 color: #95D5B2;
 transition: all .4s;
 }
-
-
+nav ul li:hover{
+    font-size: larger;
+    cursor: pointer;
+}
+#menuList{
+    overflow: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+}
 
